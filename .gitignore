@@ -38,3 +38,5 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+/chapter04/chapter04-putting-together/chapter04Create.ddl
+/chapter04/chapter04-putting-together/chapter04Drop.ddl
