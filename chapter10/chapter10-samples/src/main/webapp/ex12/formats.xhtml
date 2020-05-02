@@ -3,7 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:fmt="http://xmlns.jcp.org/jsp/jstl/fmt">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+      <!--xmlns:fmt="http://xmlns.jcp.org/jsp/jstl/fmt"-->
 <h:head>
   <title>Formatting data</title>
 </h:head>
@@ -11,18 +13,32 @@
   <h1>Formatting data</h1>
   <hr/>
 
-  Dates<br/>
+  Date<br/>
   <c:set var="now" value="#{bookController.currentDate}"/>
-  <fmt:formatDate type="time" value="#{now}"/><br/>
-  <fmt:formatDate type="date" value="#{now}"/><br/>
-  <fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="#{now}"/><br/>
-  <fmt:formatDate type="both" dateStyle="long" timeStyle="long" value="#{now}"/><br/>
+    <h:outputText value="#{now}" >
+        <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+    </h:outputText><br/>
+    
+<!--  
+    <fmt:formatDate type="time" value="#{now}"/><br/>
+    <fmt:formatDate type="date" value="#{now}"/><br/>
+    <fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="#{now}"/><br/>
+    <fmt:formatDate type="both" dateStyle="long" timeStyle="long" value="#{now}"/><br/>
+-->
 
-  Currency<br/>
-  <fmt:setLocale value="en_us"/>
-  <fmt:formatNumber value="20.50" type="currency"/><br/>
-  <fmt:setLocale value="en_gb"/>
-  <fmt:formatNumber value="20.50" type="currency"/><br/>
+  Number<br/>
+    <h:outputText value="20,50">
+        <f:convertNumber 
+            maxIntegerDigits="5"
+            maxFractionDigits="2"/>
+    </h:outputText>
+
+<!--  
+    <fmt:setLocale value="en_us"/>
+    <fmt:formatNumber value="20.50" type="currency"/><br/>
+    <fmt:setLocale value="en_gb"/>
+    <fmt:formatNumber value="20.50" type="currency"/><br/>
+-->
 
   <hr/>
   <h:outputText value="APress - Beginning Java EE 7" style="font-style: italic"/>
