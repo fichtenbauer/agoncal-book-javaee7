@@ -1,7 +1,6 @@
 package org.agoncal.book.javaee7.chapter11;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.sql.DataSourceDefinition;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.inject.Inject;
@@ -16,10 +15,10 @@ import java.util.logging.Logger;
  */
 @Singleton
 @Startup
-@DataSourceDefinition(name = "java:global/jdbc/lab11DS",
-        className = "org.apache.derby.jdbc.EmbeddedDriver",
-        url = "jdbc:derby:memory:lab11DB;create=true;user=app;password=app"
-)
+//@DataSourceDefinition(name = "java:global/jdbc/lab11DS",
+//        className = "org.apache.derby.jdbc.EmbeddedDriver",
+//        url = "jdbc:derby:memory:lab11DB;create=true;user=app;password=app"
+//)
 public class DBPopulator {
 
   // ======================================
